@@ -76,7 +76,7 @@ export default function Story() {
               <h4 className="card-heading-large">Grounded in Core CS</h4>
               <p className="card-body-text">
                 Currently pursuing B.Tech in Computer Science and Engineering at <strong>KIIT University</strong> with
-                a <strong>CGPA of 8.94 / 10.0</strong> (Expected May 2027). Prior foundation at Academic World School
+                a <strong>CGPA of 8.82 / 10.0</strong> (Expected May 2027). Prior foundation at Academic World School
                 (Secondary 93%, Senior Secondary 89%). Every high-level software abstraction rests on low-level fundamentals.
               </p>
               <div className="coursework-badges">

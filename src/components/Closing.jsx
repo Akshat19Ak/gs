@@ -102,7 +102,7 @@ export default function Closing() {
             </div>
             <div className="detail-item">
               <span className="detail-label">Institution</span>
-              <span className="detail-value">KIIT University (CSE '27 · 8.94 CGPA)</span>
+              <span className="detail-value">KIIT University (CSE '27 · 8.82 CGPA)</span>
             </div>
             <div className="detail-item">
               <span className="detail-label">GitHub Handle</span>

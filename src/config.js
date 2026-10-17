@@ -18,7 +18,7 @@ export const config = {
     degree: "B.Tech in Computer Science and Engineering",
     university: "Kalinga Institute of Industrial Technology (KIIT)",
     location: "Bhubaneswar, Odisha",
-    cgpa: "8.94 / 10.0",
+    cgpa: "8.82 / 10.0",
     graduation: "Expected May 2027",
     coursework: [
       "Data Structures & Algorithms (C++)",
@@ -143,10 +143,10 @@ export const config = {
       title: "Data Structures, Algorithms & Rigorous Software Engineering",
       tagline: "Grounding high-level systems in algorithmic efficiency and architectural discipline.",
       summary:
-        "Deepening Data Structures & Algorithms in Python (trees, graphs, dynamic programming, space-time optimization). Mastering core Computer Science: Operating Systems, Database Management Systems (SQL / PL-SQL), and Computer Architecture at KIIT (CGPA: 8.94). Completed the McKinsey Forward Program in structured problem solving.",
+        "Deepening Data Structures & Algorithms in Python (trees, graphs, dynamic programming, space-time optimization). Mastering core Computer Science: Operating Systems, Database Management Systems (SQL / PL-SQL), and Computer Architecture at KIIT (CGPA: 8.82). Completed the McKinsey Forward Program in structured problem solving.",
       catalyst:
         "As systems scale, naive architectures crumble. No matter how smart an AI model is, system latency and fault tolerance depend on clean algorithmic complexity and disciplined software engineering. Strengthening DSA in Python and software engineering fundamentals completes the circle: starting with curiosity in societies, advancing through AI and REST backends, and anchoring in core CS engineering.",
-      tags: ["DSA in Python", "Operating Systems", "DBMS / SQL", "System Design", "CGPA 8.94"],
+      tags: ["DSA in Python", "Operating Systems", "DBMS / SQL", "System Design", "CGPA 8.82"],
       badge: "Software Engineering Core",
     },
   ],

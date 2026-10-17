@@ -164,7 +164,7 @@ export default function Hero() {
       <div className="container hero-container">
         <div className="hero-content">
           <div className="hero-label reveal visible">
-            <span className="badge-pill">KIIT University CSE '27 · CGPA 8.94</span>
+            <span className="badge-pill">KIIT University CSE '27 · CGPA 8.82</span>
           </div>
 
           <h1 className="hero-headline reveal visible reveal-delay-1">
