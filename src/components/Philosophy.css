@@ -1,0 +1,125 @@
+/* ── Philosophy Section ──────────────────────────────────────── */
+.philosophy-section {
+  background: var(--bg-surface);
+  position: relative;
+  overflow: hidden;
+}
+.philosophy-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--violet), transparent);
+  opacity: 0.4;
+}
+.philosophy-intro { max-width: 660px; margin-bottom: 3rem; }
+
+/* Process container */
+.process-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Steps row */
+.process-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.9rem 0.75rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--dur-mid) var(--ease-out);
+  min-width: 80px;
+}
+.process-step:hover {
+  border-color: var(--border-hover);
+  color: var(--text-secondary);
+  background: var(--violet-subtle);
+}
+.process-step.active {
+  background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(109,40,217,0.15));
+  border-color: var(--violet);
+  color: var(--violet-light);
+  box-shadow: 0 0 20px rgba(124,58,237,0.2);
+}
+.process-step-icon { transition: transform 0.2s; }
+.process-step.active .process-step-icon { transform: scale(1.1); }
+.process-step-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Arrow connector */
+.process-arrow {
+  color: var(--text-muted);
+  transition: color var(--dur-mid);
+  flex-shrink: 0;
+}
+.process-arrow.passed { color: var(--violet-light); }
+
+/* Detail panel */
+.process-detail {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.75rem 2rem;
+  background: var(--bg-elevated);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  animation: detail-in 0.35s var(--ease-out);
+}
+@keyframes detail-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.process-detail-icon { color: var(--violet-light); flex-shrink: 0; margin-top: 2px; }
+.process-detail-heading {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Progress bar */
+.process-progress {
+  height: 3px;
+  background: var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.process-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--violet), var(--lime));
+  border-radius: 100px;
+  transition: width 0.4s var(--ease-out);
+}
+
+@media (max-width: 768px) {
+  .process-steps {
+    gap: 0.3rem;
+  }
+  .process-step { min-width: 68px; padding: 0.7rem 0.5rem; }
+  .process-arrow { display: none; }
+  .process-detail { flex-direction: column; gap: 1rem; }
+  .process-container { padding: 1.5rem; }
+}

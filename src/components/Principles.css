@@ -1,0 +1,63 @@
+/* ── Principles Section ──────────────────────────────────────── */
+.principles-section {
+  background: var(--bg-surface);
+  position: relative;
+}
+.principles-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--violet), transparent);
+  opacity: 0.3;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.principle-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform var(--dur-mid) var(--ease-out),
+              border-color var(--dur-mid) var(--ease-out),
+              box-shadow var(--dur-mid) var(--ease-out);
+}
+.principle-card:hover { transform: translateY(-4px); }
+
+.principle-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.principle-number { color: var(--violet); }
+.principle-icon {
+  width: 48px; height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--violet-subtle);
+  border: 1px solid rgba(124,58,237,0.15);
+  color: var(--violet-light);
+  transition: background var(--dur-mid), transform var(--dur-mid);
+}
+.principle-card:hover .principle-icon {
+  background: rgba(124,58,237,0.15);
+  transform: scale(1.05) rotate(3deg);
+}
+.principle-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 600px) {
+  .principles-grid { grid-template-columns: 1fr; }
+}
