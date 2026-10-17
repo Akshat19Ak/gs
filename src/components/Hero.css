@@ -74,24 +74,65 @@
   background: var(--violet-subtle);
 }
 
-.hero-headline { color: var(--text-primary); }
-.hero-headline br { display: block; }
+.hero-headline {
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hero-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 7.5vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  line-height: 1.0;
+  text-shadow: 0 0 40px rgba(167, 139, 250, 0.2);
+}
+
+.hero-subline {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.6vw, 2.7rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
 
 .hero-intro {
-  max-width: 500px;
+  max-width: 560px;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.75;
 }
-.hero-intro strong { color: var(--text-primary); font-weight: 600; }
 
-.hero-actions {
+.badge-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--violet-light);
+  text-transform: uppercase;
+}
+
+.hero-meta-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
 }
 
-.hero-footnote {
-  padding-top: 0.5rem;
-  opacity: 0.6;
+.meta-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(167, 139, 250, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 6px;
+  color: #c4b5fd;
+  white-space: nowrap;
 }
 
 /* Constellation */

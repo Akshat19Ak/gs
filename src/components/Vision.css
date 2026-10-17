@@ -1,122 +1,130 @@
-/* ── Vision Section ──────────────────────────────────────────── */
+/* ── Vision Section ───────────────────────────────────────────── */
 .vision-section {
-  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-surface) 100%);
+  position: relative;
+  border-top: 1px solid var(--border);
 }
-.vision-intro { max-width: 660px; margin-bottom: 3rem; }
 
-/* Phases */
-.phases-container {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 2.5rem;
-  margin-bottom: 3rem;
-  display: flex;
-  flex-direction: column;
+.vision-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  margin-bottom: 3.5rem;
 }
 
-.phases-tabs {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.phase-tab {
+.vision-pillar-card {
+  padding: 2.25rem;
+  background: rgba(22, 22, 46, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-  padding: 0.9rem 1.4rem;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: var(--bg-elevated);
-  cursor: pointer;
-  transition: all var(--dur-mid) var(--ease-out);
-  min-width: 110px;
+  transition: transform var(--dur-mid) var(--ease-out), border-color var(--dur-mid) var(--ease-out);
 }
-.phase-tab:hover { border-color: var(--border-hover); }
-.phase-tab.active {
-  background: color-mix(in srgb, var(--phase-color) 12%, var(--bg-elevated));
-  border-color: var(--phase-color);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--phase-color) 20%, transparent);
-}
-.phase-badge {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  transition: color var(--dur-fast);
-}
-.phase-tab.active .phase-badge { color: var(--phase-color); }
-.phase-title {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  transition: color var(--dur-fast);
-}
-.phase-tab.active .phase-title { color: var(--text-primary); }
 
-/* Panel */
-.phase-panel {
-  padding: 1.75rem 2rem;
-  background: var(--bg-elevated);
-  border-radius: 16px;
-  border: 1px solid color-mix(in srgb, var(--phase-color) 20%, var(--border));
+.vision-pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(163, 230, 53, 0.4);
+}
+
+.pillar-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.pillar-num {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--lime);
+}
+
+.pillar-accent-line {
+  height: 2px;
+  flex-grow: 1;
+  background: linear-gradient(90deg, rgba(163, 230, 53, 0.4), transparent);
+}
+
+.pillar-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.pillar-desc {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Manifesto Card */
+.future-manifesto-card {
+  background: linear-gradient(145deg, rgba(22, 22, 46, 0.8) 0%, rgba(13, 13, 26, 0.95) 100%);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 18px;
+  padding: 2.5rem;
+}
+
+.manifesto-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--violet-light);
+  background: rgba(124, 58, 237, 0.12);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+
+.manifesto-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.manifesto-list {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  animation: phase-in 0.35s var(--ease-out);
 }
-@keyframes phase-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.phase-desc {}
-.phase-list { display: flex; flex-direction: column; gap: 0.6rem; }
-.phase-list-item {
+
+.manifesto-item {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.95rem;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.manifesto-bullet {
+  color: var(--lime);
+  font-size: 1rem;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.manifesto-text {
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--text-secondary);
 }
-.phase-list-item svg { flex-shrink: 0; }
 
-/* Aspirations */
-.aspirations {}
-.aspirations-heading {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
+.manifesto-text strong {
+  color: #ffffff;
+  font-weight: 600;
 }
-.aspirations-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-}
-.aspiration-item {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 1.1rem 1.25rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: border-color var(--dur-fast), background var(--dur-fast);
-}
-.aspiration-item:hover {
-  border-color: rgba(163,230,53,0.25);
-  background: rgba(163,230,53,0.03);
-}
-.aspiration-num { color: var(--lime); flex-shrink: 0; }
-.aspiration-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
 
-@media (max-width: 600px) {
-  .phases-container { padding: 1.5rem; }
-  .phase-panel { padding: 1.25rem; }
+@media (max-width: 900px) {
+  .vision-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }

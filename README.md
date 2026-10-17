@@ -1,14 +1,13 @@
-# Akshat Gupta — Personal Portfolio Website
+# Akshat Gupta — Personal Identity & Journey Website
 
-A premium, interactive personal portfolio website built with **React** and **Vite**. Features a dark editorial design, animated constellation hero, interactive project showcases with custom SVG visualizations, and scroll-triggered animations throughout.
+A modern, high-impact personal representation website built with **React** and **Vite**. Rather than a traditional recruitment portfolio, this website represents **who Akshat Gupta is, who he wants to be, and how he sees himself** as an aspiring software engineer.
 
-## Tech Stack
-
-- **React 19** — UI components
-- **Vite 8** — Build tool & dev server
-- **Vanilla CSS** — Custom design system with CSS custom properties
-- **Lucide React** — Icon library
-- **Native Browser APIs** — IntersectionObserver, SVG animations, CSS transitions
+### Highlights:
+- **Chronological Journey with Dates**: Starts in **December 2024 with University Tech Societies** (Konnexions AI, Coding Ninjas, E-Labs, KIIT Electrical Society), progresses through **AIML & 195+ GCP Labs**, advances to **Full-Stack Python REST APIs & Model Deployment**, and anchors in **Core Software Engineering & DSA (Python)**.
+- **What Made Me Explore More**: Highlights the specific realizations and sparks behind each progression.
+- **Big-to-Small Typographic Scale**: Massive section titles scaling down through leads, cards, and body text.
+- **Concise Selected Builds**: Focused project summaries with heading, working mechanism, GitHub link, and live link.
+- **Interactive Constellation**: Interactive SVG network representing the convergence of systems and intelligence.
 
 ---
 

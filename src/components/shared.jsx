@@ -58,12 +58,12 @@ export function Nav() {
   }, []);
 
   const links = [
-    { href: '#story',    label: 'Story' },
-    { href: '#journey',  label: 'Journey' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#skills',   label: 'Skills' },
-    { href: '#vision',   label: 'Vision' },
-    { href: '#contact',  label: 'Connect' },
+    { href: '#identity', label: 'Who I Am' },
+    { href: '#journey',  label: 'Journey & Timeline' },
+    { href: '#projects', label: 'Selected Builds' },
+    { href: '#vision',   label: 'Who I Want To Be' },
+    { href: '#skills',   label: 'Arsenal' },
+    { href: '#connect',  label: 'Connect' },
   ];
 
   const handleNav = (e, href) => {

@@ -164,41 +164,43 @@ export default function Hero() {
       <div className="container hero-container">
         <div className="hero-content">
           <div className="hero-label reveal visible">
-            <span className="text-label">Personal Portfolio · Software · AI</span>
+            <span className="badge-pill">KIIT University CSE '27 · CGPA 8.94</span>
           </div>
 
-          <h1 className="display-xl hero-headline reveal visible reveal-delay-1">
-            Curious by nature.
-            <br />
-            <span className="gradient-text">An engineer</span>
-            <br />
-            in the making.
+          <h1 className="hero-headline reveal visible reveal-delay-1">
+            <span className="hero-name">Akshat Gupta</span>
+            <span className="hero-subline gradient-text">Who I Am. Who I Want To Be.</span>
           </h1>
 
-          <p className="text-large hero-intro reveal visible reveal-delay-2">
-            I'm <strong>Akshat Gupta</strong> — a computer science student who enjoys understanding
-            how things work, building software that solves problems, and exploring what becomes
-            possible when engineering meets intelligence.
+          <p className="hero-intro reveal visible reveal-delay-2">
+            A software engineer in the making. My path began with university technical societies,
+            evolved through machine learning and cloud-scale labs, expanded into full-stack Python
+            REST APIs, and is grounded in deep Data Structures, Algorithms, and Software Engineering core.
           </p>
 
           <div className="hero-actions reveal visible reveal-delay-3">
-            <button className="btn btn-primary" onClick={() => scrollTo('#story')}
-              id="hero-btn-story">
-              Explore my journey
+            <button className="btn btn-primary" onClick={() => scrollTo('#journey')}
+              id="hero-btn-journey">
+              Follow My Journey
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M8 3v10M3 8l5 5 5-5"/>
               </svg>
             </button>
-            <button className="btn btn-secondary" onClick={() => scrollTo('#projects')}
+            <button className="btn btn-secondary" onClick={() => scrollTo('#identity')}
+              id="hero-btn-identity">
+              Who I Am
+            </button>
+            <button className="btn btn-ghost-subtle" onClick={() => scrollTo('#projects')}
               id="hero-btn-projects">
-              Discover what I build
+              Selected Builds →
             </button>
           </div>
 
-          <div className="hero-footnote reveal visible reveal-delay-4">
-            <span className="text-label" style={{ letterSpacing: '0.1em' }}>
-              Learning continuously. Building intentionally.
-            </span>
+          <div className="hero-meta-badges reveal visible reveal-delay-4">
+            <span className="meta-badge">Dec 2024 · Joined Tech Societies</span>
+            <span className="meta-badge">2025 · AI/ML & 195+ GCP Labs</span>
+            <span className="meta-badge">2026 · Full-Stack Python REST APIs</span>
+            <span className="meta-badge">Present · DSA & Systems</span>
           </div>
         </div>
 

@@ -4,104 +4,122 @@ import { config } from '../config';
 import './Journey.css';
 
 export default function Journey() {
-  const [expanded, setExpanded] = useState(null);
-  const { timeline } = config;
+  const { journey, societies } = config;
+  const [activeStage, setActiveStage] = useState(null);
 
-  const toggle = (id) => setExpanded(prev => prev === id ? null : id);
+  const toggleStage = (id) => {
+    setActiveStage(prev => (prev === id ? null : id));
+  };
 
   return (
     <section id="journey" className="section journey-section">
       <div className="container">
+        {/* Massive Section Header */}
         <Reveal>
-          <span className="text-label">My Journey</span>
-          <div className="section-divider"/>
-          <h2 className="display-lg">
-            Less about knowing everything.<br/>
-            <span className="gradient-text">More about learning how to build.</span>
-          </h2>
+          <div className="section-header-block">
+            <span className="section-eyebrow">The Chronological Progression</span>
+            <div className="section-divider" />
+            <h2 className="section-title-huge">
+              My Journey: How Curiosity Became Craft.
+            </h2>
+            <h3 className="section-lead-large">
+              Starting with university technical societies, transitioning deeply into AI/ML &amp; 195+ cloud labs,
+              advancing to full-stack Python REST APIs, and anchoring in core Software Engineering &amp; DSA.
+            </h3>
+          </div>
         </Reveal>
 
+        {/* Starting Catalyst Spotlight: University Societies */}
         <Reveal delay={1}>
-          <p className="text-large journey-intro">
-            My development as an engineer is a progression of capabilities, curiosity, and projects
-            — not a neat career ladder. Here's how the journey has unfolded so far.
-          </p>
+          <div className="societies-spotlight card">
+            <div className="spotlight-header">
+              <div className="spotlight-badge">Dec 2024 · The Starting Point</div>
+              <h3 className="spotlight-title">Joining Campus Tech Societies at KIIT</h3>
+              <p className="spotlight-subtitle">
+                The defining spark that took me out of classroom theory and immersed me in a culture of building, hackathons, and community leadership.
+              </p>
+            </div>
+
+            <div className="societies-grid">
+              {societies.map((soc) => (
+                <div key={soc.name} className="society-pill">
+                  <div className="society-role-badge">{soc.role}</div>
+                  <h4 className="society-name">{soc.name}</h4>
+                  <div className="society-affil">{soc.affiliation} · {soc.period}</div>
+                  <p className="society-desc">{soc.highlights}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="catalyst-box spotlight-catalyst">
+              <div className="catalyst-tag">
+                <span className="catalyst-icon">✦</span>
+                <span className="catalyst-title">What Made Me Explore More:</span>
+              </div>
+              <p className="catalyst-text">
+                Being surrounded by passionate peers, organizing flagship initiatives like <strong>AI Odyssey 2025</strong> and serving on the Central Organizing Committee for <strong>Technical KIIT Fest 9.0</strong> proved to me that real engineering happens in execution. Hearing developers discuss machine intelligence ignited a hunger to explore ML from first principles.
+              </p>
+            </div>
+          </div>
         </Reveal>
 
-        <div className="timeline" role="list">
-          {timeline.map((entry, i) => (
-            <Reveal key={entry.id} delay={Math.min(i + 1, 5)}>
-              <div
-                role="listitem"
-                className={`timeline-item ${expanded === entry.id ? 'expanded' : ''}`}
-              >
-                {/* Line connector */}
-                <div className="timeline-connector" aria-hidden="true">
-                  <div className="timeline-dot"/>
-                  {i < timeline.length - 1 && <div className="timeline-line"/>}
-                </div>
-
-                <div className="timeline-body">
-                  <button
-                    className="timeline-header"
-                    onClick={() => toggle(entry.id)}
-                    aria-expanded={expanded === entry.id}
-                    aria-controls={`timeline-panel-${entry.id}`}
-                    id={`timeline-btn-${entry.id}`}
-                  >
-                    <div className="timeline-meta">
-                      <span className="timeline-period text-label">{entry.period}</span>
-                      <h3 className="timeline-title">{entry.title}</h3>
+        {/* Chronological Timeline */}
+        <div className="timeline-container" role="list">
+          {journey.map((step, idx) => {
+            const isExpanded = activeStage === step.id || activeStage === null;
+            return (
+              <Reveal key={step.id} delay={Math.min(idx + 1, 4)}>
+                <div
+                  className={`timeline-node ${isExpanded ? 'active' : ''}`}
+                  role="listitem"
+                >
+                  {/* Timeline track marker */}
+                  <div className="timeline-marker-col">
+                    <div className="timeline-circle">
+                      <span className="circle-dot" />
                     </div>
-                    <span className="timeline-chevron" aria-hidden="true">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d={expanded === entry.id ? 'M5 12l5-5 5 5' : 'M5 8l5 5 5-5'}/>
-                      </svg>
-                    </span>
-                  </button>
+                    {idx < journey.length - 1 && <div className="timeline-trail" />}
+                  </div>
 
-                  <div
-                    id={`timeline-panel-${entry.id}`}
-                    role="region"
-                    aria-labelledby={`timeline-btn-${entry.id}`}
-                    className="timeline-content"
-                  >
-                    <p className="text-body timeline-desc">{entry.description}</p>
-                    <div className="timeline-tags">
-                      {entry.tags.map(tag => (
-                        <span key={tag} className="tag">{tag}</span>
+                  {/* Timeline card body */}
+                  <div className="timeline-content-card card">
+                    {/* Header: Date + Phase */}
+                    <div className="timeline-top-row">
+                      <div className="timeline-phase-wrap">
+                        <span className="phase-pill">{step.phase}</span>
+                        <span className="date-tag">{step.date}</span>
+                      </div>
+                      <span className="timeline-step-badge">{step.badge}</span>
+                    </div>
+
+                    {/* Step Title & Tagline (Large Hierarchy) */}
+                    <h3 className="timeline-heading-huge">{step.title}</h3>
+                    <h4 className="timeline-subheading">{step.tagline}</h4>
+
+                    {/* Summary */}
+                    <p className="timeline-summary-text">{step.summary}</p>
+
+                    {/* The Trigger: What made me explore more */}
+                    <div className="catalyst-box">
+                      <div className="catalyst-tag">
+                        <span className="catalyst-icon">⚡</span>
+                        <span className="catalyst-title">What Made Me Explore More:</span>
+                      </div>
+                      <p className="catalyst-text">{step.catalyst}</p>
+                    </div>
+
+                    {/* Tags */}
+                    <div className="timeline-tags-wrap">
+                      {step.tags.map(tag => (
+                        <span key={tag} className="timeline-tech-tag">{tag}</span>
                       ))}
                     </div>
                   </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
-
-        {/* Experience callout */}
-        <Reveal delay={2}>
-          <div className="experience-card card">
-            <div className="exp-badge">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <rect x="2" y="7" width="16" height="11" rx="2"/>
-                <path d="M7 7V5a3 3 0 016 0v2"/>
-                <circle cx="10" cy="13" r="1.5" fill="currentColor"/>
-              </svg>
-            </div>
-            <div>
-              <span className="text-label exp-label">Professional Experience</span>
-              <h3 className="exp-role">Software Development Intern</h3>
-              <p className="exp-org">Bhilai Steel Plant (SAIL) · June 2026</p>
-              <p className="text-body exp-desc">
-                {config.experience[0].description}
-              </p>
-              <div className="exp-tags">
-                {config.experience[0].skills.map(s => <span key={s} className="tag">{s}</span>)}
-              </div>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

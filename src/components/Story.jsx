@@ -1,108 +1,89 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Reveal } from './shared';
+import { config } from '../config';
 import './Story.css';
 
-const THEMES = [
-  {
-    id: 'curiosity',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="14" cy="12" r="7"/>
-        <path d="M14 19v3M11.5 10.5a2.5 2.5 0 015 0c0 2-2.5 2.5-2.5 4"/>
-        <circle cx="14" cy="24" r="0.8" fill="currentColor"/>
-      </svg>
-    ),
-    title: 'Curiosity',
-    heading: 'Exploring how things work',
-    body: "I've always been drawn to understanding systems from the inside — not just using tools, but asking why they behave the way they do. That impulse to dig deeper has led me from learning the basics of programming to exploring machine learning, distributed systems, and intelligent applications. Every new technology starts with a genuine question.",
-  },
-  {
-    id: 'engineering',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="4" y="10" width="20" height="12" rx="2"/>
-        <path d="M9 10V7a5 5 0 0110 0v3"/>
-        <circle cx="14" cy="16" r="2"/>
-        <path d="M14 18v2"/>
-      </svg>
-    ),
-    title: 'Engineering',
-    heading: 'Translating ideas into software',
-    body: "I find the act of building genuinely satisfying — the process of moving from a rough idea to a working implementation through code, debugging, iteration, and testing. I approach engineering as a craft: every project is an opportunity to write better code, structure a more coherent system, and produce something that actually does what it is supposed to do.",
-  },
-  {
-    id: 'growth',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M4 22c0-8 5-14 10-14s10 6 10 14"/>
-        <path d="M14 8V4"/>
-        <path d="M10 12L7 9M18 12l3-9"/>
-      </svg>
-    ),
-    title: 'Growth',
-    heading: 'Learning from every challenge',
-    body: "I don't expect to have all the answers before I start. The best learning happens when I take on something slightly beyond my current capability — build something imperfect, understand why it failed, and do it better the next time. My technical journey is a collection of these loops, and I expect that pattern to continue for a long time.",
-  },
-];
-
 export default function Story() {
-  const [active, setActive] = useState('curiosity');
-  const activeTheme = THEMES.find(t => t.id === active);
+  const { education } = config;
 
   return (
-    <section id="story" className="section story-section">
+    <section id="identity" className="section identity-section">
       <div className="container">
+        {/* Massive Section Header */}
         <Reveal>
-          <span className="text-label">My Story</span>
-          <div className="section-divider"/>
-          <h2 className="display-lg story-heading">
-            Every interesting thing<br />starts with a question.
-          </h2>
+          <div className="section-header-block">
+            <span className="section-eyebrow">Identity & Mindset</span>
+            <div className="section-divider" />
+            <h2 className="section-title-huge">
+              Who I Am &amp; How I See Myself.
+            </h2>
+            <h3 className="section-lead-large">
+              A student of computer science obsessed with understanding systems from first principles —
+              not just making code work, but understanding <span className="gradient-text">why and how it performs</span>.
+            </h3>
+          </div>
         </Reveal>
 
-        <Reveal delay={1}>
-          <p className="text-large story-intro">
-            I'm a computer science student who found that the subjects I kept returning to were
-            the ones where understanding the mechanism mattered as much as knowing the answer.
-            My interest spans both classical software engineering and the newer space of AI-powered
-            applications — not as separate disciplines, but as complementary ways of building things
-            that work.
-          </p>
-        </Reveal>
-
-        <div className="story-themes">
-          {/* Theme selector tabs */}
-          <Reveal delay={2} className="theme-tabs">
-            <div className="theme-tab-list" role="tablist" aria-label="Core themes">
-              {THEMES.map(t => (
-                <button
-                  key={t.id}
-                  id={`tab-${t.id}`}
-                  role="tab"
-                  aria-selected={active === t.id}
-                  aria-controls={`panel-${t.id}`}
-                  className={`theme-tab ${active === t.id ? 'active' : ''}`}
-                  onClick={() => setActive(t.id)}
-                >
-                  <span className="theme-tab-icon">{t.icon}</span>
-                  <span>{t.title}</span>
-                </button>
-              ))}
+        {/* 3 Core Identity Pillars */}
+        <div className="identity-grid">
+          {/* Pillar 1 */}
+          <Reveal delay={1}>
+            <div className="identity-card card">
+              <div className="identity-card-header">
+                <span className="card-number">01</span>
+                <span className="card-tag">Self-Perspective</span>
+              </div>
+              <h4 className="card-heading-large">The Incurable Curiosity</h4>
+              <p className="card-body-text">
+                I see myself as a builder who cannot settle for treating software as a black box.
+                When training an LSTM model or routing requests through an async FastAPI endpoint,
+                I don’t just import libraries and hope for the best. I want to know how the gradient flows,
+                how the event loop handles concurrency, and where memory is allocated under the hood.
+              </p>
+              <div className="card-quote">
+                "Real engineering begins the moment you refuse to accept abstractions as magic."
+              </div>
             </div>
           </Reveal>
 
-          {/* Theme panel */}
+          {/* Pillar 2 */}
+          <Reveal delay={2}>
+            <div className="identity-card card">
+              <div className="identity-card-header">
+                <span className="card-number">02</span>
+                <span className="card-tag">Execution Philosophy</span>
+              </div>
+              <h4 className="card-heading-large">From Theory to Working Systems</h4>
+              <p className="card-body-text">
+                Ideas are easy; robust systems are hard. I believe in fast prototyping backed by methodical
+                refinement. My work bridges the gap between statistical machine learning and production
+                software engineering — building REST APIs, containerizing with Docker, normalizing databases,
+                and testing against real-world edge cases.
+              </p>
+              <div className="card-quote">
+                "A model inside a notebook is an experiment. A model behind a resilient API is a solution."
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Pillar 3 */}
           <Reveal delay={3}>
-            <div
-              key={active}
-              id={`panel-${active}`}
-              role="tabpanel"
-              aria-labelledby={`tab-${active}`}
-              className="theme-panel"
-            >
-              <div className="theme-panel-icon">{activeTheme.icon}</div>
-              <h3 className="display-md theme-panel-heading">{activeTheme.heading}</h3>
-              <p className="text-large theme-panel-body">{activeTheme.body}</p>
+            <div className="identity-card card">
+              <div className="identity-card-header">
+                <span className="card-number">03</span>
+                <span className="card-tag">Academic Rigor</span>
+              </div>
+              <h4 className="card-heading-large">Grounded in Core CS</h4>
+              <p className="card-body-text">
+                Currently pursuing B.Tech in Computer Science and Engineering at <strong>KIIT University</strong> with
+                a <strong>CGPA of 8.94 / 10.0</strong> (Expected May 2027). Prior foundation at Academic World School
+                (Secondary 93%, Senior Secondary 89%). Every high-level software abstraction rests on low-level fundamentals.
+              </p>
+              <div className="coursework-badges">
+                {education.coursework.map(c => (
+                  <span key={c} className="course-badge">{c}</span>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>

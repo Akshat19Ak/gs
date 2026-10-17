@@ -207,6 +207,18 @@ ul, ol { list-style: none; }
 }
 .btn-ghost:hover { color: var(--text-primary); }
 
+.btn-ghost-subtle {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.btn-ghost-subtle:hover {
+  background: rgba(167, 139, 250, 0.14);
+  border-color: rgba(167, 139, 250, 0.35);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
 /* ── Tags ────────────────────────────────────────────────────── */
 .tag {
   display: inline-flex;
